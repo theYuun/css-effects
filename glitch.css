@@ -1,0 +1,119 @@
+:root {
+    --span-opacity: 0;
+    --shadow: none;
+    --animation: none;
+}
+
+@keyframes glitchEffect {
+    0% {
+        text-shadow:
+            -5px 0 0 rgba(255, 0, 0, 0.5),
+            -3px -3px 0 rgba(0, 255, 0, 0.5),
+            3px 3px 0 rgba(0, 0, 255, 0.5);
+    }
+    10% {
+        text-shadow:
+            -5px 0 0 rgba(255, 0, 0, 0.5),
+            -3px -3px 0 rgba(0, 255, 0, 0.5),
+            3px 3px 0 rgba(0, 0, 255, 0.5);
+    }
+    11% {
+        text-shadow:
+            3px 0 0 rgba(255, 0, 0, 0.5),
+            5px 5px 0 rgba(0, 255, 0, 0.5),
+            -5px -5px 0 rgba(0, 0, 255, 0.5);
+        }
+    23% {
+        text-shadow:
+            3px 0 0 rgba(255, 0, 0, 0.5),
+            5px 5px 0 rgba(0, 255, 0, 0.5),
+            -5px -5px 0 rgba(0, 0, 255, 0.5);
+    }
+    24% {
+        text-shadow:
+            -3px 3px 0 rgba(255, 0, 0, 0.5),
+            -5px 0 0 rgba(0, 255, 0, 0.5),
+            3px 5px 0 rgba(0, 0, 255, 0.5);
+    }
+    52% {
+        text-shadow:
+        -3px 3px 0 rgba(255, 0, 0, 0.5),
+        -5px 0 0 rgba(0, 255, 0, 0.5),
+        3px 5px 0 rgba(0, 0, 255, 0.5);
+    }
+    53% {
+        text-shadow:
+            3px 0 0 rgba(255, 0, 0, 0.5),
+            5px 5px 0 rgba(0, 255, 0, 0.5),
+            -5px -5px 0 rgba(0, 0, 255, 0.5);
+    }
+    69% {
+        text-shadow:
+            3px 0 0 rgba(255, 0, 0, 0.5),
+            5px 5px 0 rgba(0, 255, 0, 0.5),
+            -5px -5px 0 rgba(0, 0, 255, 0.5);
+    }
+    70% {
+        text-shadow:
+            -3px 3px 0 rgba(255, 0, 0, 0.5),
+            -5px 0 0 rgba(0, 255, 0, 0.5),
+            3px 5px 0 rgba(0, 0, 255, 0.5);
+    }
+    99% {
+        text-shadow:
+            -3px 3px 0 rgba(255, 0, 0, 0.5),
+            -5px 0 0 rgba(0, 255, 0, 0.5),
+            3px 5px 0 rgba(0, 0, 255, 0.5);
+    }
+    100% {
+        text-shadow:
+            3px -3px 0 rgba(255, 0, 0, 0.5),
+            3px 5px 0 rgba(0, 255, 0, 0.5),
+            -5px 0 0 rgba(0, 0, 255, 0.5);
+    }
+    
+}
+
+.glitchEffect {
+    position: relative;
+    margin: auto;
+    color: #aaa;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 50px;
+
+    text-shadow: var(--shadow);
+
+    animation: var(--animation);
+    
+    cursor: pointer;
+}
+
+.glitchEffect:hover {
+    --span-opacity: 1;
+    --shadow: 
+        5px 0 0 rgba(255, 0, 0, 0.5),
+        3px 3px 0 rgba(0, 255, 0, 0.5),
+        -3px -3px 0 rgba(0, 0, 255, 0.5);
+    --animation: glitchEffect 1.5s infinite;
+}
+
+.glitchEffect span{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.glitchEffect span:first-child{
+    opacity: var(--span-opacity);
+    animation: glitchEffect 1.3s infinite;
+    clip-path: polygon(-20% -20%, 120% -20%, 120% 30%, -20% 50%);
+    transform: translate(-2px, -3px);
+}
+
+.glitchEffect span:last-child{
+    opacity: var(--span-opacity);
+    animation: glitchEffect 1.7s infinite;
+    clip-path: polygon(-20% 70%, 120% 60%, 120% 120%, -20% 120%);
+    transform: translate(5px, 3px);
+}

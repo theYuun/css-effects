@@ -1,0 +1,77 @@
+:root {
+    --animation-time: 500ms;
+    --line-width: 2px;
+}
+
+@keyframes glow-fade {
+    /* 0%, 100% {
+        opacity: 0;
+    }
+    25%, 75% {
+        opacity: 1;
+    } */
+    80% {
+        --line-width: 5px;
+    }
+    99% {
+        --line-width: 5px;
+    }
+    100% {
+        opacity: 1;
+        stroke-dashoffset: -131px;
+        --line-width: 2px;
+    }
+}
+
+.glow-effect{
+    position: relative;
+    margin: auto;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-family: monospace;
+}
+
+/* the above does the same as below */
+/*
+.glow-effect:is(:hover, :focus) svg {
+    animation: glow-fade var(--animation-speed);
+}
+*/
+.glow-effect:hover svg {
+    animation:
+        glow-fade var(--animation-time) forwards;
+}
+
+svg {
+    --container-offset: 100px;
+    position: absolute;
+    inset: calc(var(--container-offset) / -2);
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.glow-blur, .glow-line {
+    width: calc(100% - var(--container-offset));
+    height: calc(100% - var(--container-offset));
+
+    x: calc(var(--container-offset) / 2);
+    y: calc(var(--container-offset) / 2);
+    rx: 10px;
+    ry: 10px;
+    fill: #0000;
+    stroke: #fff;
+    stroke-width: var(--line-width);
+    stroke-dasharray: 20px 30px;
+}
+
+.glow-line {
+    filter: blur(1px);
+}
+
+.glow-blur {
+    filter: blur(10px);
+}
